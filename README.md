@@ -75,6 +75,28 @@ After the dataset is ready, you can train the network with the following command
 python main.py -m train
 ```
 
+## Run with docker container
+First prepare files described above this way:
+512_1024_gen_0030.pth -> ./checkpoints
+torch_FaceSegment_300.pkl -> ./checkpoints
+FaceReconModel.pb -> ./checkpoints
+bfm2009_face.mat -> ./BFM
+```
+mkdir result
+```
+Also you can put your picture in `./input` folder.
+
+To run container use next commands:
+```
+docker build -t meingame .
+docker run -v $(pwd)/input/:/home/MeInGame/data/test/demo/ -v $(pwd)/result/:/home/MeInGame/results/ -it meingame bash
+
+python main.py -m test -i demo
+# Or
+python main.py -m test -i demo -c
+# it will run on the CPU, if you don't have a qualified GPU.
+
+```
 ## Citation
 
 Please cite the following paper if this model helps your research:
