@@ -89,11 +89,11 @@ Also you can put your picture in `./input` folder.
 To run container use next commands:
 ```
 docker build -t meingame .
-docker run -v $(pwd)/input/:/home/MeInGame/data/test/demo/ -v $(pwd)/result/:/home/MeInGame/results/ -it meingame bash
+docker run -v $(pwd)/input/:/home/MeInGame/data/test/demo/ -v $(pwd)/results/:/home/MeInGame/results/ -it meingame bash
 
-python main.py -m test -i demo
+python3 main.py -m test -i demo
 # Or
-python main.py -m test -i demo -c
+python3 main.py -m test -i demo -c
 # it will run on the CPU, if you don't have a qualified GPU.
 
 ```
